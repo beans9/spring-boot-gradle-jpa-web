@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8" />
+<title>BLOG</title>
+<style>
+</style>
+</head>
+<body>
+	<h1>MODIFY</h1>
+
+	<form id="frm" th:attr="action=@{|/${item.id}|}" method="post">
+		<table>
+			<tr>
+				<th>TITLE</th>
+				<td><input type="text" name="title" id="title" required="" th:value="${item.title}"/></td>
+			</tr>
+			<tr>
+				<th>CONTENT</th>
+				<td><textarea id="content" name="content" required="" th:text="${item.content}"></textarea></td>
+			</tr>
+		</table>
+		<input type="hidden" name="id" th:value="${item.id}" />
+		
+		<hr/>
+		<input type="submit" value="modify" />
+		<input type="button" onclick="javacsript:history.back(-1);" value="cancel" />
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8" />
+<title>BLOG</title>
+</head>
+<body>
+	<h1>LIST</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>TITLE</th>
+			</tr>
+		</thead>
+		<tr th:if="${#lists.isEmpty(list)}">
+			<td colspan="2">No Data</td>
+		</tr>
+		<tr th:each="data : ${list}">
+			<td th:text="${data.id}"></td>
+			<td><a th:href="@{|/${data.id}|}" th:text="${data.title}"></a></td>
+		</tr>
+	</table>
+	<hr/>
+	<a th:href="@{/add}">입력</a>
+</body>
+</html>

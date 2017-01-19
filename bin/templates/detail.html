@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8" />
+<title>BLOG</title>
+</head>
+<body>
+	<h1>DETAIL</h1>
+	
+	<form id="frm" th:attr="action=@{|/${item.id}|}" method="post">
+		<table>
+			<tr>
+				<th>ID</th>
+				<td th:text="${item.id}"></td>
+			</tr>
+			<tr>
+				<th>TITLE</th>
+				<td th:text="${item.title}"></td>
+			</tr>
+			<tr>
+				<th>CONTENT</th>
+				<td th:text="${item.content}"></td>
+			</tr>
+		</table>
+		
+		<hr/>
+		
+		<a href="javascript:" onclick="proc('delete')">delete</a>
+		<a href="javascript:" onclick="proc('put')">modify</a>
+		<a href="/list">list</a>
+		
+		<input type="hidden" name="_method" id="_method" value="PUT" />
+	</form>
+
+	<script type="text/javascript">
+	<!--
+		function proc(type){
+			document.getElementById("_method").value = type;	
+			document.getElementById("frm").submit()
+		}
+	//-->
+	</script>
+</body>
+</html>
